@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Outfit', sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rajdhani', 'Outfit', sans-serif;
+    letter-spacing: 0.025em;
+  }
+}
+
+@layer utilities {
+  /* Translucent frosted-glass panels */
+  .glass-panel {
+    @apply bg-white/70 dark:bg-slate-900/65 backdrop-blur-lg border border-slate-200/50 dark:border-white/10 shadow-xl;
+  }
+  
+  .glass-panel-heavy {
+    @apply bg-white/90 dark:bg-slate-950/85 backdrop-blur-xl border border-slate-300/50 dark:border-white/10 shadow-2xl;
+  }
+
+  /* Glassmorphic cards with responsive neon glows on hover */
+  .glass-card {
+    @apply bg-white/60 dark:bg-slate-900/40 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/60 shadow-lg transition-all duration-300 hover:border-primary-400/40 dark:hover:border-primary-500/30 hover:shadow-primary-500/10 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  /* Deep glow text effect */
+  .glow-text {
+    text-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+  }
+
+  .glow-text-purple {
+    text-shadow: 0 0 12px rgba(168, 85, 247, 0.4);
+  }
+
+  /* Interactive gradient sliding buttons */
+  .btn-gradient {
+    @apply relative overflow-hidden bg-gradient-to-r from-primary-600 to-violet-600 text-white font-semibold transition-all duration-300 hover:from-primary-500 hover:to-violet-500 active:scale-95 shadow-lg shadow-primary-500/25 hover:shadow-primary-500/45;
+  }
+  
+  .btn-gradient-secondary {
+    @apply relative overflow-hidden bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-100 font-semibold border border-slate-300 dark:border-slate-700/80 transition-all duration-300 hover:bg-slate-300/80 dark:hover:bg-slate-700/80 active:scale-95;
+  }
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-cyber-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-800 rounded-full border-2 border-slate-100 dark:border-cyber-dark hover:bg-slate-400 dark:hover:bg-slate-700;
+}
+
+/* Page loading spinner rotation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-slow {
+  animation: spin-slow 2s linear infinite;
+}

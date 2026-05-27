@@ -1,0 +1,18 @@
+{
+  "name": "aura-premium-ecommerce",
+  "version": "1.0.0",
+  "description": "Unified launcher for premium E-Commerce web application",
+  "scripts": {
+    "install-all": "npm install && npm run install-backend && npm run install-frontend",
+    "install-backend": "npm install --prefix backend",
+    "install-frontend": "npm install --prefix frontend",
+    "seed": "cd backend && node --env-file=.env seeder.js",
+    "server": "cd backend && nodemon --env-file=.env server.js",
+    "client": "npm run dev --prefix frontend",
+    "dev": "concurrently --names \"BACKEND,FRONTEND\" -c \"bgBlue.bold,bgGreen.bold\" \"cd backend && npx nodemon --env-file=.env server.js\" \"npm run dev --prefix frontend\"",
+    "start": "concurrently --names \"BACKEND,FRONTEND\" -c \"bgBlue.bold,bgGreen.bold\" \"cd backend && node --env-file=.env server.js\" \"npm run dev --prefix frontend\""
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
